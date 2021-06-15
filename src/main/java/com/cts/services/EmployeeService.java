@@ -14,5 +14,9 @@ public interface EmployeeService {
 	Employee raiseSalary(Long id, Long raise);
 
 	List<Employee> findAllEmployees();
+	
+	List<Employee> findEmployeesByName(String name);
+	
+	List<Employee> getEmployeeWithSimilarComments(String comment);
 
 }

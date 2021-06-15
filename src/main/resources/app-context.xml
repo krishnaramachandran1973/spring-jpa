@@ -22,7 +22,7 @@
 		p:driverClassName="#{jpaintro.driverClassName}"
 		p:url="#{jpaintro.url}"
 		p:username="#{jpaintro.user}"
-		p:password="#{jpainto.password}" />
+		p:password="#{jpaintro.password}" />
 	
 	<!-- FactoryBean -->
 	<bean
