@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.cts.entities.Address;
 import com.cts.entities.Employee;
 import com.cts.repo.EmployeeRepository;
 import com.cts.services.EmployeeService;
@@ -29,15 +30,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 	EmployeeRepository repo;
 
 	@Override
-	public Employee createEmployee(String name, Long salary, String comments) {
+	public Employee createEmployee(String name, Long salary, String comments, Address address) {
 		logger.info("Creating an employee");
-		Employee emp = Employee.builder().name(name).salary(salary).comments(comments).build();
+		Employee emp = Employee.builder().name(name).salary(salary).comments(comments).address(address).build();
+
 		return repo.save(emp);
 	}
 
 	@Override
 	public Employee findEmployee(Long id) {
-		// TODO Auto-generated method stub
+		// em.find(entityClass, primaryKey) // PC here // propagated PC
+		// dept.getDepartment(){
+		// em.find()
 		return null;
 	}
 

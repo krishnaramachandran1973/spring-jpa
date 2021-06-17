@@ -7,6 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.cts.config.JpaConfig;
+import com.cts.entities.Address;
 import com.cts.services.EmployeeService;
 
 public class EmployeeTest {
@@ -17,13 +18,20 @@ public class EmployeeTest {
 		// ClassPathXmlApplicationContext("app-context.xml");
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(JpaConfig.class);
 		EmployeeService empService = ctx.getBean("employeeService", EmployeeService.class);
+		
+		log.info(empService.getClass().getCanonicalName());// Proxy&5ljgljg
+		
+		
 		//empService.createEmployee("Rohit", 1000l, "Joined as PL");
 
 		// empService.raiseSalary(1L, 8000L);
 		//empService.findEmployeesByName("Rohit").forEach(emp -> log.info("{}", emp));
 
-		empService.getEmployeeWithSimilarComments("Joined").forEach(emp -> log.info("{}", emp));
+		//empService.getEmployeeWithSimilarComments("Joined").forEach(emp -> log.info("{}", emp));
+		
+		empService.createEmployee("Prachi",10000L, "PL",Address.builder().city("Pune").state("Maharashtra").build());
+		
+		//empService.removeEmployee(1L);
 
 	}
-
 }
